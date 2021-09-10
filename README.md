@@ -25,7 +25,7 @@ Based on the epistemic results of the above historiographical study, as an exemp
 Directed at five expanded candidate words, we employed the BERT model and PubMedBERT model to quantify the semantic similarities between them, respectively.
 ## Experimental corpus
 *	BERT [ the BookCorpus (800M words) and English Wikipedia (2,500M words) ]
-*	PubMedBERT [PubMed abstracts (14M abstracts, 3.2B words, 21GB)]
+*	PubMedBERT [ PubMed abstracts (14M abstracts, 3.2B words, 21GB) ]
 ![image](https://github.com/YaChen8/Naming_human_disease/blob/main/Semantic%20similarity%20experiments/Figure%205.jpg)
 __Figure 3__. Heatmaps of semantic similarity scores. A, the BERT model and B, the PubMedBERT model. The higher scores in the heatmaps, the higher semantic similarity between two synonyms. 
 # 4、Semantic drift experiments
