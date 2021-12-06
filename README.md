@@ -10,7 +10,7 @@ In the global online news coverage experiments, we aim to unveil the scientific 
 *	65 multilingual online news
 *	Machine translate capacity
 *	Network image recognition capacity
-![image](/blob/main/Historiographical%20study/Figure%203.jpg)
+![image](https://github.com/Computational-social-science/Naming_human_disease/blob/main/Historiographical%20study/Figure%203.jpg)
 __Figure 1__. The global instant news portfolio on GDELT Summary summarizes the textual and visual narratives of different queries in 65 multilingual online news: A, German measles; B, Middle Eastern Respiratory Syndrome; C, Spanish flu; D, Hong Kong flu; and E, Huntington's disease. The upper panels display the percent of all global online news coverage over time. The lower panels show the average emotional tone of all news coverage from extremely negative to extremely positive. The temporal resolution of sampling is 15 minutes per day.
 # 2、Historiographical study
 For a large number of cases of unsuccessful naming of diseases, we choose German measles as an example. By searching the frequency of use of German measles and its synonyms in historical development, we can initially understand the nature of its historical evolution.
