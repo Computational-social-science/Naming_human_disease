@@ -27,7 +27,7 @@ Directed at five expanded candidate words, we employed the BERT model and PubMed
 *	BERT [ the BookCorpus (800M words) and English Wikipedia (2,500M words) ]
 *	PubMedBERT [ PubMed abstracts (14M abstracts, 3.2B words, 21GB) ]
 ![image](https://github.com/YaChen8/Naming_human_disease/blob/main/Semantic%20similarity%20experiments/Figure%205.jpg)
-__Figure 3__. Heatmaps of semantic similarity scores. A, the BERT model and B, the PubMedBERT model. The higher scores in the heatmaps, the higher semantic similarity between two synonyms. 
+__Figure 3__. Heatmaps of semantic similarity scores. **A**, the BERT model and **B**, the PubMedBERT model. The higher scores in the heatmaps, the higher semantic similarity between two synonyms. 
 # 4、Semantic drift experiments
 To accurately demonstrate the semantic evolution of each keyword, we analyzed the dynamic evolution of the five keywords German measles, morbilli, rubeola, rubella, and rötheln.
 ## Experimental corpus：Google Books Ngram Corpus
