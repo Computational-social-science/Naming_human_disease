@@ -16,7 +16,15 @@ __Figure 1__. The global instant news portfolio on GDELT Summary summarizes the 
 For a large number of cases of unsuccessful naming of diseases, we choose *German measles* as an example. By searching the frequency of use of *German measles* and its synonyms in historical development, we can initially understand the nature of its historical evolution.
 ## Experimental corpus：Google Books Ngram Corpus
 *	n-grams from approximately 8 million books
-*	6% of all books published in Eight languages (Eight languages are English, Hebrew, French, German, Spanish, Russian, Italian, and Chinese, respectively)
+*	6% of all books published in Eight languages
+	- English
+	- Hebrew
+	- French
+	- German
+	- Spanish
+	- Russian
+	- Italian
+	- Chinese
 *	Book data logs from 1500 to 2019
 ![image](https://github.com/YaChen8/Naming_human_disease/blob/main/Historiographical%20study/Figure%203.jpg)
 __Figure 2__. Google Books Ngram Corpus (GBNC) facsimiles the diachronic discourse of *morbilli* (English corpus), *rubeola* (English corpus), *rubella* (English corpus), *Rötheln* (German corpus), and *German measles* (English corpus) from 1719 to 2019.
