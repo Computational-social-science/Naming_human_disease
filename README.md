@@ -1,5 +1,5 @@
-Ethical Principles of the Nomenclature of Human Diseases
-========================================================
+Naming diseases: Heuristic approach to curate disease taxonomy beyond nosology-based standards
+==============================================================================================
 Since the present naming protocols could not offer a one-size-fits-all corrective mechanism, many idiomatic but flawed names frequently appear in scientific literature and news outlets at the cost of sociocultural impacts.  To mitigate such impacts, we introduce the ethical principles for the latest naming protocols of human diseases.  Relatedly, we orchestrate rich metadata available to unveil the nosological evolution of anachronistic names and demonstrate the heuristic approaches to curate exclusive substitutes for inopportune nosology based on deep learning models and post-hoc explanations.
 # Environment setting
 python version : 3.7.0
@@ -42,4 +42,4 @@ To accurately demonstrate the semantic evolution of each keyword, we analyzed th
 ![image](https://github.com/YaChen8/Naming_human_disease/blob/main/Semantic%20drift%20experiments/Figure%206.jpg)
 __Figure 4__. The historical reconceptualization process of *German measles* and common synonyms. 
 # Citing
-Code for our paper " Ethical Principles of the Nomenclature of Human Diseases". Please cite our paper if you find this repository helpful in your research.
+Code for our paper "Naming diseases: Heuristic approach to curate disease taxonomy beyond nosology-based standards". Please cite our paper if you find this repository helpful in your research.
