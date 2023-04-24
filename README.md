@@ -20,7 +20,7 @@ Environment setting: python version : 3.7.0
 	- Russian
 	- Italian
 	- Chinese
-*	Book data logs from 1700 to 2019
+*	Book data logs from 1500 to 2019
 ![image](https://github.com/Computational-social-science/Naming_human_disease/blob/ff159c3888789bcb1d2ce60a15dabeb55ac980b5/Historiographical%20study/fig3_300dpi.jpg)
 # 3、Semantic similarity experiments
 ## Experimental corpus
