@@ -7,7 +7,6 @@ import random
 from matplotlib import pyplot as plt
 from matplotlib import cm
 from matplotlib import axes
-# from matplotlib.font_manager import FontProperties
 import numpy as NP
 import warnings
 import matplotlib as mpl
@@ -16,24 +15,10 @@ from matplotlib.colors import ListedColormap,LinearSegmentedColormap
 from transformers import BertTokenizer, BertModel
 import os
 
-matplotlib.font_manager._rebuild()
-
 warnings.filterwarnings("ignore")
 plt.rcParams['font.sans-serif']=['SimHei'] # 用来正常显示中文标签
 plt.rcParams['axes.unicode_minus']=False # 用来正常显示负号
-# plt.rcParams['font.size'] = 10 # 全局字体大小
 plt.rcParams['font.family'] = 'Times New Roman' # 全局字体样式
-# font = {'family': 'serif',
-#         'weight': "medium"
-#         }
-
-#创建文件夹用于存储结果
-path=os.getcwd()
-if(os.path.exists(path+'/result')==False):
-    os.mkdir(path+'/result')
-if(os.path.exists(path+'/result/figure')==False):
-    os.mkdir(path+'/result/figure')
-
 
 #加载模型
 tokenizer1 = BertTokenizer.from_pretrained('bert-base-multilingual-uncased')
@@ -57,15 +42,6 @@ for word in words:
     output2=model2(**encoded_input2)
     embeddings2.append(torch.mean(output2.last_hidden_state[0, :, :], dim=0))
 
-#余弦相似度
-# def cosine_sim(x,y): #本地使用会报错，服务器上运行时输出结果和下方方法一样
-#     num=sum(map(float,x*y))
-#     denom=np.linalg.norm(x)*np.linalg.norm(y)
-#     return num/float(denom)
-# score = np.zeros(shape=(len(words), len(words)))
-# for i in range(len(words)):
-#     for j in range(len(words)):
-#         score[i, j] = cosine_sim(embeddings[i].detach().numpy(), embeddings[j].detach().numpy())
 def calculate_similariy(embedding1, embedding2):
     return (torch.dot(embedding1, embedding2) / (torch.norm(embedding1) * torch.norm(embedding2))).item()
 score1 = np.zeros(shape=(len(words), len(words)))
@@ -79,27 +55,9 @@ for i in range(len(words)):
         score2[i, j] = calculate_similariy(embeddings2[i], embeddings2[j])
 print(score2)
 
-#保存.xls文件
-# f=xlwt.Workbook(encoding = 'utf-8')
-# sheet1=f.add_sheet('sheet1',cell_overwrite_ok=True) #创建sheet
-# for i in range(len(words)):
-#     sheet1.write(0,i+1,words[i])
-# for i in range(len(score)):
-#     sheet1.write(i+1,0,words[i])
-#     for j in range(len(score[i])):
-#         sheet1.write(i+1,j+1,str('%.5f'%score[i][j]))
-# for i in range(len(words)+1):
-#     sheet1.col(i).width=3800
-# f.save('result/data.xls')
-#保存.csv文件
-# data_xls = pd.read_excel('result/data.xls', index_col=0)
-# data_xls.to_csv('result/data.csv', encoding='utf-8')
-
 #结果可视化
-clist=['#4e91e5','#72bf9e','#69dada','#ff7777','#ff7034'] #自定义图表色系
+clist = ["#E9F6E4","#D5EFCD","#BBE4B5","#99D495","#77C67A","#4AB161","#2F994F","#147F3B"] # 绿色 Greens
 newcmp = LinearSegmentedColormap.from_list('chaos',clist)
-# plt.rcParams['font.family'] = 'Times New Roman' # 全局字体样式,https://blog.csdn.net/smileyan9/article/details/113871420
-
 
 xLabel = ["","German measles","Rubella","Rötheln","Rotheln","Morbilli","Rubeola"] #定义热图的横纵坐标
 yLabel = ["","German measles","Rubella","Rötheln","Rotheln","Morbilli","Rubeola"]
@@ -133,9 +91,7 @@ cmap1 = cm.get_cmap(newcmp, 10) # jet doesn't have white color
 cmap1.set_bad('w') # default value is 'k'
 #作图并选择热图的颜色填充风格，这里选择自定义
 im1 = ax1.imshow(data1, interpolation="nearest", cmap=cmap1)
-#增加右侧的颜色刻度条
-#     plt.colorbar(im)
-#     heatmap = plt.pcolor(data)
+
 # 为每一个格子加上数值
 for x in range(0,len(data1)):
     for y in range(x,len(data1)):
@@ -177,9 +133,7 @@ cmap2 = cm.get_cmap(newcmp, 10) # jet doesn't have white color
 cmap2.set_bad('w') # default value is 'k'
 #作图并选择热图的颜色填充风格，这里选择自定义
 im2 = ax2.imshow(data2, interpolation="nearest", cmap=cmap2)
-#增加右侧的颜色刻度条
-#     plt.colorbar(im)
-#     heatmap = plt.pcolor(data)
+
 # 为每一个格子加上数值
 for x in range(0,len(data2)):
     for y in range(x,len(data2)):
@@ -197,14 +151,14 @@ plt.setp(label_x2, rotation=30, horizontalalignment='right')
 
 plt.subplots_adjust(wspace=0.3,hspace=0.3)
 
-plt.savefig('result/figure/BERT_PubMedBERT_result_300dpi.jpg', bbox_inches='tight', dpi=300)
-plt.savefig('result/figure/BERT_PubMedBERT_result_150dpi.jpg', bbox_inches='tight', dpi=150)
-plt.savefig('result/figure/BERT_PubMedBERT_result_300dpi.png', bbox_inches='tight', dpi=300)
-plt.savefig('result/figure/BERT_PubMedBERT_result_150dpi.png', bbox_inches='tight', dpi=150)
-plt.savefig('result/figure/BERT_PubMedBERT_result_300dpi.tiff', bbox_inches='tight', dpi=300)
-plt.savefig('result/figure/BERT_PubMedBERT_result_150dpi.tiff', bbox_inches='tight', dpi=150)
-plt.savefig('result/figure/BERT_PubMedBERT_result_300dpi.svg', bbox_inches='tight', dpi=300)
-plt.savefig('result/figure/BERT_PubMedBERT_result_150dpi.svg', bbox_inches='tight', dpi=150)
+plt.savefig('./fig5_300dpi.jpg', bbox_inches='tight', dpi=300)
+plt.savefig('./fig5_150dpi.jpg', bbox_inches='tight', dpi=150)
+plt.savefig('./fig5_300dpi.png', bbox_inches='tight', dpi=300)
+plt.savefig('./fig5_150dpi.png', bbox_inches='tight', dpi=150)
+plt.savefig('./fig5_300dpi.tiff', bbox_inches='tight', dpi=300)
+plt.savefig('./fig5_150dpi.tiff', bbox_inches='tight', dpi=150)
+plt.savefig('./fig5_300dpi.svg', bbox_inches='tight', dpi=300)
+plt.savefig('./fig5_150dpi.svg', bbox_inches='tight', dpi=150)
 #show
 plt.show()
 
